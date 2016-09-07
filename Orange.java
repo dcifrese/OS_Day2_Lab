@@ -11,6 +11,15 @@ public class Orange {
         private State(int timeToComplete) {
             this.timeToComplete = timeToComplete;
         }
+
+        public State nextState(){
+            if (this == Processed){
+                return this;
+            }
+            int nextIndex = this.ordinal()+1;
+            return State.values()[nextIndex];
+            
+        }
     }
     private State state;
 
@@ -29,7 +38,7 @@ public class Orange {
             throw new IllegalStateException("This orange has already been processed");
         }
         doWork();
-        // state = nextState??
+        state = state.nextState();
     }
 
     private void doWork() {
