@@ -56,7 +56,7 @@ public class Plant implements Runnable {
     public void startPlant() {
         timeToWork = true;
         thread.start();
-        //thread2.start();
+        thread2.start();
     }
 
     public void stopPlant() {
@@ -66,10 +66,10 @@ public class Plant implements Runnable {
     public void waitToStop() {
         try {
             thread.join();
-            //thread2.join();
+            thread2.join();
         } catch (InterruptedException e) {
             System.err.println(thread.getName() + " stop malfunction");
-            //System.err.println(thread2.getName() + " stop malfunction");
+            System.err.println(thread2.getName() + " stop malfunction");
         }
 
     }
